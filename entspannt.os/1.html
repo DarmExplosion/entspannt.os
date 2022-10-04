@@ -1,0 +1,113 @@
+<html>
+<head>
+<title>suop</title>
+<meta charset="utf-8">
+<script>
+
+function initiate() {
+  document.addEventListener('keydown', (event) => {
+  var name = event.key;
+
+  switch(name) {
+
+        case "Shift": break;
+        case "Backspace": removeStuff(); break;
+        case "Alt": break;
+        case "Control": break;
+        case "Enter": newLine(); break;
+       // case "Shift": break;
+       // case "Shift": break;
+        default: addStuff(name);
+}
+        
+}, false);
+
+}
+
+function newLine() {
+document.getElementById("canvas8").innerHTML = document.getElementById("canvas7").innerHTML
+document.getElementById("canvas7").innerHTML = document.getElementById("canvas6").innerHTML
+document.getElementById("canvas6").innerHTML = document.getElementById("canvas5").innerHTML
+document.getElementById("canvas5").innerHTML = document.getElementById("canvas4").innerHTML
+document.getElementById("canvas4").innerHTML = document.getElementById("canvas3").innerHTML
+document.getElementById("canvas3").innerHTML = document.getElementById("canvas2").innerHTML
+document.getElementById("canvas2").innerHTML = document.getElementById("canvas1").innerHTML
+document.getElementById("canvas1").innerHTML = "Darm@mainhost: "
+
+  
+}
+
+function removeStuff(){
+        var div = document.getElementById('canvas1').innerHTML;
+        var newtext = div.substr(0, div.length - 1);
+        document.getElementById('canvas1').innerHTML = newtext;
+        console.log(div);
+        console.log(newtext);
+}
+
+function addStuff(i) {
+        var div = document.getElementById('canvas1');
+        div.innerHTML += i;
+}
+
+
+</script>
+<style>
+    body {
+      color: #FEFEFE;
+      background-color: #0c0d10;
+      margin: 0 auto;
+      padding: 1em 0 1em 0;
+      text-align: left;
+    }
+    
+    .container {
+
+        align-items: left;
+
+    }
+
+    p {
+
+        font-family: "gohu";
+        text-align: left;
+
+    }
+
+    .lilcontainer {
+
+        font-family: "gohu";
+        text-align: left;
+        align-items: left;
+        margin-left: 10px;
+
+    }
+    
+        @font-face { font-family: "gohu"; src: url("gohu.woff") format('woff'); }
+       pre { font-family: "gohu", "Lucida Console", monospace, Monaco; font-size: 14px; line-height: 1.0; }
+         a { color: #93ffd7; text-decoration: none; }
+
+
+
+</style>
+</head>
+<body onload="initiate()">
+     
+                <div id="container" style="display:table-cell; margin-top: 1px;">
+                        <div class="lilcontainer" id="row7"><p id="canvas8"></p></div>
+                        <div class="lilcontainer" id="row6"><p id="canvas7"></p></div>
+                        <div class="lilcontainer" id="row5"><p id="canvas6"></p></div>
+                        <div class="lilcontainer" id="row4"><p id="canvas5"></p></div>
+                        <div class="lilcontainer" id="row3"><p id="canvas4"></p></div>
+                        <div class="lilcontainer" id="row2"><p id="canvas3"></p></div>
+                        <div class="lilcontainer" id="row1"><p id="canvas2"></p></div>
+                        <div class="lilcontainer" id="row0"><p id="canvas1"> he he -Child rapist</p></div>
+                                
+                        
+                </div>
+       
+
+<button onclick="addStuff()">
+
+</body>
+</html>
