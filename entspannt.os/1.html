@@ -5,6 +5,7 @@
 <script>
 
 function initiate() {
+        var buffer = 
   document.addEventListener('keydown', (event) => {
   var name = event.key;
 
@@ -14,16 +15,58 @@ function initiate() {
         case "Backspace": removeStuff(); break;
         case "Alt": break;
         case "Control": break;
-        case "Enter": newLine(); break;
-       // case "Shift": break;
-       // case "Shift": break;
+
+        case "Enter":   switch(document.getElementById("canvas1").innerHTML){
+
+                                case "Darm@mainhost: ls":       var push = 1; console.log(push); newEntry(push);  break; 
+                                case "Darm@mainhost: ":         var push = 2; newEntry(push); break;
+                                case "Darm@mainhost: text":       var push = 3; console.log(push); newEntry(push);  break;
+                                default: newEntry(); console.log("no case was met when pressing  enter"); break;
+                
+                        }
+        
         default: addStuff(name);
 }
         
 }, false);
 
+newLine(); }
+
+function newEntry(variable1) {
+        console.log(variable1);
+
+        switch(variable1){
+                case variable1=1: newLine();
+                        document.getElementById("canvas1").innerHTML = "Welcome to the help page!";
+                        newLine(); 
+                        document.getElementById("canvas1").innerHTML = "Darm@mainhost: "
+                        break;
+
+                case variable1=2: newLine();
+                        document.getElementById("canvas1").innerHTML = "Unknown Command!";
+                        newLine();
+                        break;
+
+                case variable1=3: newLine();
+                        var textarea = "\n";
+
+                        var eol = textarea.replace(/\r\n/, "\r");
+                        var string1 = "Preformatted" + eol + "multispace     string";
+
+                        document.getElementById("canvas1").innerHTML = string1;
+                        newLine();
+                        break;
+
+                default: newLine();
+                        document.getElementById("canvas1").innerHTML = "Unknown Command!";
+                        newLine();
+                        console.log("an error has occured")
+                        break;
+                        
+
 }
 
+}
 function newLine() {
 document.getElementById("canvas8").innerHTML = document.getElementById("canvas7").innerHTML
 document.getElementById("canvas7").innerHTML = document.getElementById("canvas6").innerHTML
@@ -38,15 +81,19 @@ document.getElementById("canvas1").innerHTML = "Darm@mainhost: "
 }
 
 function removeStuff(){
+
         var div = document.getElementById('canvas1').innerHTML;
+        if(div.length >= 16) {
         var newtext = div.substr(0, div.length - 1);
         document.getElementById('canvas1').innerHTML = newtext;
         console.log(div);
-        console.log(newtext);
+        console.log(newtext);}
+        
 }
 
 function addStuff(i) {
         var div = document.getElementById('canvas1');
+        if(i == "Enter") return
         div.innerHTML += i;
 }
 
@@ -94,18 +141,48 @@ function addStuff(i) {
 <body onload="initiate()">
      
                 <div id="container" style="display:table-cell; margin-top: 1px;">
-                        <div class="lilcontainer" id="row7"><p id="canvas8"></p></div>
-                        <div class="lilcontainer" id="row6"><p id="canvas7"></p></div>
-                        <div class="lilcontainer" id="row5"><p id="canvas6"></p></div>
-                        <div class="lilcontainer" id="row4"><p id="canvas5"></p></div>
-                        <div class="lilcontainer" id="row3"><p id="canvas4"></p></div>
-                        <div class="lilcontainer" id="row2"><p id="canvas3"></p></div>
-                        <div class="lilcontainer" id="row1"><p id="canvas2"></p></div>
-                        <div class="lilcontainer" id="row0"><p id="canvas1"> he he -Child rapist</p></div>
-                                
-                        
-                </div>
-       
+                        <div class="lilcontainer" id="row7"><pre id="canvas8"></pre></div>
+                        <div class="lilcontainer" id="row6"><pre id="canvas7"></pre></div>
+                        <div class="lilcontainer" id="row5"><pre id="canvas6"></pre></div>
+                        <div class="lilcontainer" id="row4"><pre id="canvas5"></pre></div>
+                        <div class="lilcontainer" id="row3"><pre id="canvas4"></pre></div>
+                        <div class="lilcontainer" id="row2"><pre id="canvas3"></pre></div>
+                        <div class="lilcontainer" id="row1"><pre id="canvas2"></pre></div>
+                        <div class="lilcontainer" id="row0"><pre id="canvas1">Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.4.0-125-generic x86_64)
+
+* Documentation:  https://help.ubuntu.com
+* Management:     https://landscape.canonical.com
+* Support:        https://ubuntu.com/advantage
+                               
+System information as of Tue 04 Oct 2022 11:55:08 AM UTC
+                               
+System load:                 0.34
+Usage of /home:              30.8% of 1.69TB
+Memory usage:                20%
+Swap usage:                  0%
+Temperature:                 11.0 C
+Processes:                   219
+Users logged in:             0
+IPv4 address for br-mailcow: 172.22.1.1
+IPv6 address for br-mailcow: fd4d:6169:6c63:6f77::1
+IPv4 address for docker0:    172.17.0.1
+IPv4 address for enp1s0:     192.168.178.41
+IPv6 address for enp1s0:     2003:ec:771a:8b00:ba97:5aff:feea:9bee
+                               
+* Super-optimized for small spaces - read how we shrank the memory
+footprint of MicroK8s to make it the smallest full K8s around.
+                               
+https://ubuntu.com/blog/microk8s-memory-optimisation
+                               
+47 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+                               
+New release '22.04.1 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+                               
+*** System restart required ***
+Last login: Tue Oct  4 01:21:19 2022 from 192.168.178.66M</pre>
+</div></div>
 
 <button onclick="addStuff()">
 
