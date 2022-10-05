@@ -18,9 +18,30 @@ function initiate() {
 
         case "Enter":   switch(document.getElementById("canvas1").innerHTML){
 
-                                case "Darm@mainhost: ls":       var push = 1; console.log(push); newEntry(push);  break; 
+                                case "Darm@mainhost: ls":       var push = 1; console.log(push); newEntry(push);  document.getElementById('canvas1').scrollIntoView();break; 
                                 case "Darm@mainhost: ":         var push = 2; newEntry(push); break;
-                                case "Darm@mainhost: text":       var push = 3; console.log(push); newEntry(push);  break;
+                                case "Darm@mainhost: text":       var push = 3; console.log(push); newEntry(push);  document.getElementById('canvas1').scrollIntoView(); break;
+                                case "Darm@mainhost: neofetch":       var push = 4; console.log(push); newEntry(push);   document.getElementById('canvas1').scrollIntoView();break;
+
+                                case "Darm@mainhost: color 0":       var cmd = 0; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color 1":       var cmd = 1; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color 2":       var cmd = 2; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color 3":       var cmd = 3; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color 4":       var cmd = 4; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color 5":       var cmd = 5; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color 6":       var cmd = 6; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color 7":       var cmd = 7; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color 8":       var cmd = 8; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color 9":       var cmd = 9; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color A":       var cmd = "A"; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color B":       var cmd = "B"; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color C":       var cmd = "C"; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color D":       var cmd = "D"; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color E":       var cmd = "E"; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+                                case "Darm@mainhost: color F":       var cmd = "F"; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
+
+
+
                                 default: newEntry(); console.log("no case was met when pressing  enter"); break;
                 
                         }
@@ -32,14 +53,42 @@ function initiate() {
 
 newLine(); }
 
+function execCmd(cmd) {
+
+        switch(cmd){
+                case cmd=0: newLine(); document.getElementById("mainbody").style.color = "black";break;
+                case cmd=8: newLine(); document.getElementById("mainbody").style.color = "gray";break;
+                case cmd=1: newLine(); document.getElementById("mainbody").style.color = "blue";break;
+                case cmd=9: newLine(); document.getElementById("mainbody").style.color = "light_blue";break;
+                case cmd=2: newLine(); document.getElementById("mainbody").style.color = "green";break;
+                case cmd="A": newLine(); document.getElementById("mainbody").style.color = "light_green";break;
+                case cmd=3: newLine(); document.getElementById("mainbody").style.color = "aqua";break;
+                case cmd="B": newLine(); document.getElementById("mainbody").style.color = "light_aqua";break;
+                case cmd=4: newLine(); document.getElementById("mainbody").style.color = "red";break;
+                case cmd="C": newLine(); document.getElementById("mainbody").style.color = "light_red";break;
+                case cmd=5: newLine(); document.getElementById("mainbody").style.color = "Purple";break;
+                case cmd="D": newLine(); document.getElementById("mainbody").style.color = "light_purple";break;
+                case cmd=6: newLine(); document.getElementById("mainbody").style.color = "yellow";break;
+                case cmd="E": newLine(); document.getElementById("mainbody").style.color = "light_yellow";break;
+                case cmd=7: newLine(); document.getElementById("mainbody").style.color = "white";break;
+                case cmd="F": newLine(); document.getElementById("mainbody").style.color = "white";break;
+
+        }
+
+}
+
 function newEntry(variable1) {
         console.log(variable1);
 
         switch(variable1){
-                case variable1=1: newLine();
-                        document.getElementById("canvas1").innerHTML = "Welcome to the help page!";
-                        newLine(); 
-                        document.getElementById("canvas1").innerHTML = "Darm@mainhost: "
+                case variable1=1:  newLine();
+                        var textarea = "\n";
+
+                        var eol = textarea.replace(/\r\n/, "\r");
+                        var string1 = "Supported commands: " + eol + "-------------------------------";
+
+                        document.getElementById("canvas1").innerHTML = string1;
+                        newLine();
                         break;
 
                 case variable1=2: newLine();
@@ -52,6 +101,18 @@ function newEntry(variable1) {
 
                         var eol = textarea.replace(/\r\n/, "\r");
                         var string1 = "Preformatted" + eol + "multispace     string";
+
+                        document.getElementById("canvas1").innerHTML = string1;
+                        newLine();
+                        break;
+
+
+                case variable1=4: newLine();
+
+                        var textarea = "\n";
+
+                        var eol = textarea.replace(/\r\n/, "\r");
+                        var string1 = "___________.__       .__              __  .__        __                             " + eol + "\\_   _____/|__| _____|  |__   _______/  |_|__| ____ |  | __  ______     ____  ______" + eol + " |    __)  |  |/  ___/  |  \\ /  ___/\\   __\\  |/ ___\\|  |/ / /  ___/    /  _ \\/  ___/" + eol + " |     \\   |  |\\___ \\|   Y  \\\\___ \\  |  | |  \\  \\___|    <  \\___ \\    (  <_> )___ \\ " + eol + " \\___  /   |__/____  >___|  /____  > |__| |__|\\___  >__|_ \\/____  > /\\ \\____/____  >" + eol + "     \\/            \\/     \\/     \\/               \\/     \\/     \\/  \\/           \\/ ";
 
                         document.getElementById("canvas1").innerHTML = string1;
                         newLine();
@@ -138,7 +199,7 @@ function addStuff(i) {
 
 </style>
 </head>
-<body onload="initiate()">
+<body onload="initiate()" id="mainbody">
      
                 <div id="container" style="display:table-cell; margin-top: 1px;">
                         <div class="lilcontainer" id="row7"><pre id="canvas8"></pre></div>
