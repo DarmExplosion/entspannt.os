@@ -22,6 +22,7 @@ function initiate() {
                                 case "Darm@mainhost: ":         var push = 2; newEntry(push); break;
                                 case "Darm@mainhost: text":       var push = 3; console.log(push); newEntry(push);  document.getElementById('canvas1').scrollIntoView(); break;
                                 case "Darm@mainhost: neofetch":       var push = 4; console.log(push); newEntry(push);   document.getElementById('canvas1').scrollIntoView();break;
+                                case "Darm@mainhost: gameMode":       var push = "gameMode"; console.log(push); gameMode();   document.getElementById('canvas1').scrollIntoView();break;
 
                                 case "Darm@mainhost: color 0":       var cmd = 0; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
                                 case "Darm@mainhost: color 1":       var cmd = 1; console.log(push); execCmd(cmd); document.getElementById('canvas1').scrollIntoView();  break;
@@ -76,6 +77,34 @@ function execCmd(cmd) {
         }
 
 }
+
+function gameMode() {
+        var canvas = createArray(5,5)
+        console.log(canvas);
+}
+
+function createArray(width, height) {
+
+        var x = new Array(width);
+
+        for (var i = 0; i < x.length; i++) {
+           x[i] = new Array(height);
+           
+           var temp = x[i];
+
+           for(let i=0; i=temp.length; i++) {
+
+                temp[i] = "O";
+           }
+
+           x[i] = temp;
+
+        }
+
+        return x;
+        
+}  
+
 
 function newEntry(variable1) {
         console.log(variable1);
